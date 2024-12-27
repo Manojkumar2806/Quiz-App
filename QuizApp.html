@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="QuizApp.css">
+</head>
+
+<body>
+    <div id="sectionHome">
+        <div class="home-container">
+
+            <img src="https://i.ibb.co/R220w7T/quiz-app-removebg-preview.png" />
+            <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#staticBackdrop" id="startBtn">
+                Start Quiz
+            </button>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Quiz Instructions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="instructions">
+                                <ul>
+                                    <li>This quiz consists of <span class="important highlight">10 multiple choice questions</span> based on Python.</li>
+                                    <li>You have <span class="important highlight">20 seconds</span> to answer each question, and the timer will start automatically.</li>
+                                    <li>Each question must have an answer selected to proceed to the next question.</li>
+                                    <li>If you don’t select an answer in time, <span class="important">the question will automatically move to the next one.</span></li>
+                                    <li>If you skip a question or answer incorrectly, the question will be recorded, but no points will be awarded for that question.</li>
+                                    <li><span class="important highlight">Each correct answer earns you 10 points.</span> Your total score will be displayed at the end of the quiz.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Quit</button>
+                            <button type="button" class="btn btn-primary" onclick="display('sectionQuiz')">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sectionQuiz" style="display: none;">
+        <div class="quiz-container">
+            <div class="container">
+                <div class="header">
+                    <p>Quiz</p>
+                    <p>Score: <strong id="score">0</strong></p>
+                    <div class="timer-section">
+                        <div class="timercontainer"><i class="fa-regular fa-clock clock-size" style="color: #2356be;"></i><span id="timer">0</span></div>
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <p id="para"></p>
+                </div>
+                <div id="quiz-questions-container">
+
+                </div>
+                <p id="skippara"></p>
+                <p id="error"></p>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function display(sectionId) {
+
+            $('#staticBackdrop').modal('hide');
+
+
+            document.getElementById('sectionHome').style.display = 'none';
+            document.getElementById('sectionQuiz').style.display = 'block';
+
+
+            showquestion(currentQuestionIndex);
+            startTimer();
+        }
+    </script>
+     <script src="QuizApp.js"></script>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+</body>
+
+</html>
