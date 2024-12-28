@@ -56,13 +56,6 @@ A fully responsive and interactive **Quiz Application** built with HTML, CSS, Ja
 
 ---
 
-## 🛠️ Future Enhancements
-1. Add more categories and difficulty levels.
-2. Implement a leaderboard feature to display top scores.
-3. Store quiz data and results using a backend API or local storage.
-
----
-
 ## 🙏 Thank You!
 Thank you for checking out this project! Your feedback, suggestions, and contributions are always welcome. 💙  
 
